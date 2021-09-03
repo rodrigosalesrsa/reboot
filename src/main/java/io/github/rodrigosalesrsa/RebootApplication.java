@@ -13,6 +13,11 @@ public class RebootApplication {
         return "Hello World, Rodrigo!";
     }
 
+    @GetMapping("/bye")
+    public String bye(){
+        return "Bye, Rodrigo!";
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(RebootApplication.class, args);
     }
