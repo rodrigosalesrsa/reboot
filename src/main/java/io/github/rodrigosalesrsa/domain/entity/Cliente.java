@@ -1,8 +1,17 @@
 package io.github.rodrigosalesrsa.domain.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Cliente")
 public class Cliente {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
+
+    @Column(name = "name", length = 100)
     private String name;
 
     public Cliente() {
@@ -35,7 +44,7 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" +
+        return "Client{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

@@ -1,7 +1,7 @@
 package io.github.rodrigosalesrsa;
 
 import io.github.rodrigosalesrsa.domain.entity.Cliente;
-import io.github.rodrigosalesrsa.domain.repository.Clientes;
+import io.github.rodrigosalesrsa.domain.repository.ClientesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
@@ -32,10 +32,10 @@ public class RebootApplication {
     }
 
     @Bean
-    public CommandLineRunner init(@Autowired Clientes clientes){
+    public CommandLineRunner init(@Autowired ClientesRepository clientes){
         return args -> {
-            clientes.salvar(new Cliente("Rodrigo"));
-            clientes.salvar(new Cliente("Tallyta"));
+            clientes.persiste(new Cliente("Rodrigo"));
+            clientes.persiste(new Cliente("Tallyta"));
 
             List<Cliente> todosClientes = clientes.listarTodos();
             todosClientes.forEach(System.out::println);
